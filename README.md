@@ -15,3 +15,7 @@ DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=pub
 ```bash
 http://localhost:3000/api/post/set?code=24CharacterCodeHere
 ```
+
+با ست کردن کرون جاب روی این فایل میتونید آپدیت هارو به صورت خودکار دریافت کنید.
+
+در صورتی که فقط یک عدد کد رهگیری فعال دارید، نیازی به دادن کوئری پارامتر `code` نیست.

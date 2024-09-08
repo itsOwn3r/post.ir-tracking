@@ -41,7 +41,6 @@ export async function GET(req: Request) {
 
     if (!findTrackingCode) {
         return NextResponse.json({ success: false, message: "This tracking code is not active at the moment!" });
-
     }
     
 

@@ -32,6 +32,4 @@ model TrackingLog {
   package   TrackingPackage @relation(fields: [packageId], references: [id])
 
   time      Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
