@@ -7,6 +7,13 @@ export async function GET() {
     const trackingCode = await db.trackingPackage.findFirst({
         where: {
             isActive: true
+        },
+        include: {
+            TrackingLog: {
+                orderBy: {
+                    time: "desc"
+                }
+            }
         }
     })
 
@@ -79,6 +86,39 @@ export async function GET() {
     str = str.replace(` ${i} `, "");
     validData.push(str);
   });
+
+
+  for (const item of validData) {
+
+    const countTrackingLogs = await db.trackingLog.count({
+        where: {
+            packageId: trackingCode.id
+        }
+    })
+
+    const findItem = await db.trackingLog.findFirst({
+        where: {
+            text: {
+                contains: item
+            }
+        }
+    })
+
+    if (!findItem && item !== "start") {
+        // add tracking log to the database
+        await db.trackingLog.create({
+            data: {
+                text: item,
+                packageId: trackingCode.id,
+                index: countTrackingLogs + 1,
+                time: Math.ceil(Date.now() / 1000)
+            }
+        })
+    }
+
+    // TODO: Send notification
+    
+  }
 
   return NextResponse.json({ success: true, data: validData });
 }
