@@ -2,6 +2,8 @@ import db from "@/lib/db";
 import { NextResponse } from "next/server";
 import fetch from "node-fetch";
 
+export const revalidate = 0;
+
 export async function GET(req: Request) {
     const { searchParams } = new URL(req.url);
 
