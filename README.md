@@ -31,7 +31,7 @@ http://localhost:3000/api/post?code=24CharacterCodeHere
 
 ```bash
 DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
-SEND_NOTIFS="yes" // if set to anything else, sending notifications will be disabled.
-URL="https://apiroute.domain.com" // URL that has free access to the internet and will send the notification via telegram api
-CHAT_ID="-100111111111" // user id of the receiver on telegram
+SEND_NOTIFS="yes" # if set to anything else, sending notifications will be disabled.
+URL="https://apiroute.domain.com" # URL that has free access to the internet and will send the notification via telegram api
+CHAT_ID="-100111111111" # user id of the receiver on telegram
 ```
